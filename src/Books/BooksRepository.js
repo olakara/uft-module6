@@ -39,6 +39,10 @@ class BooksRepository {
     this.lastAddedBookPm.subscribe(callback);
   };
 
+  getBookCount = async () => {
+    return this.booksPm.value.length;
+  };
+
   loadApiData = async () => {
     const dto = await httpGateway.get(
       "https://api.logicroom.co/api/olakara@gmail.com/" + this.mode

@@ -6,13 +6,14 @@ export default function StatsComponent() {
   const [stateViewModel, copyViewModelToStateViewModel] = useState("");
 
   useEffect(() => {
-    statsPresenter.load(generatedViewModel => {
+    statsPresenter.load((generatedViewModel) => {
       copyViewModelToStateViewModel(generatedViewModel);
     });
   }, []);
 
   return (
     <div>
+      <h3>Book Count </h3>
       <h5>Last Added Book (ui)</h5>
       {stateViewModel}
     </div>

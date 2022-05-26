@@ -1,7 +1,11 @@
 import booksRepository from "../Books/BooksRepository";
 
 export default class StatsPresenter {
-  load = async callback => {
+  load = async (callback) => {
     await booksRepository.getLastAddedBook(callback);
+  };
+
+  getBookCount = async () => {
+    return await booksRepository.getBookCount();
   };
 }
