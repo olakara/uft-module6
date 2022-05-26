@@ -39,8 +39,10 @@ class BooksRepository {
     this.lastAddedBookPm.subscribe(callback);
   };
 
-  getBookCount = async () => {
-    return this.booksPm.value.length;
+  getBookCount = async (callback) => {
+    this.booksPm.subscribe((pm) => {
+      callback(pm.length);
+    });
   };
 
   loadApiData = async () => {

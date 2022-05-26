@@ -15,7 +15,9 @@ describe("stats", () => {
 
   it("should show total books", async () => {
     let bookCount = 0;
-    bookCount = await new StatsPresenter().getBookCount();
+    await new StatsPresenter().getBookCount((generatedViewModel) => {
+      bookCount = generatedViewModel;
+    });
     expect(bookCount).toBe(6);
   });
 });

@@ -5,7 +5,9 @@ export default class StatsPresenter {
     await booksRepository.getLastAddedBook(callback);
   };
 
-  getBookCount = async () => {
-    return await booksRepository.getBookCount();
+  getBookCount = async (callback) => {
+    return await booksRepository.getBookCount((bookCount) => {
+      callback(bookCount);
+    });
   };
 }
